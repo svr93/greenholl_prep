@@ -1,0 +1,80 @@
+/** ----- the addition to inline styles ----- **/
+
+@additionalGreen: #beff8c;
+
+@baseGradient: repeating-linear-gradient(white, @additionalGreen, white);
+
+@backgroundSize: 100% 300%;
+
+@transition: .5s linear;
+
+@borderWidthBefore: 0;
+@borderWidthAfter: 1px;
+
+@widthBefore: 100%;
+@widthAfter: 125%;
+
+@transformBefore: rotate3d(1, -1, 1, 0deg);
+@transformAfter: rotate3d(1, -1, 1, 30deg);
+
+/* ----- classes ----- */
+
+.gradient {
+  background-image: -webkit-@baseGradient;
+  background-image: -moz-@baseGradient;
+  background-image: -o-@baseGradient;
+  background-image: -ms-@baseGradient;
+
+  -webkit-background-size: @backgroundSize;
+  -moz-background-size: @backgroundSize;
+  -o-background-size: @backgroundSize;
+  -ms-background-size: @backgroundSize;
+
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  -ms-transition: @transition;
+
+  /* gradient for IE9- */
+  -pie-background: linear-gradient(@additionalGreen, white);
+  behavior: url(/js/PIE.htc);
+}
+.gradient:hover {
+  background-position: 0 100%;
+}
+
+/* ----- identificators ----- */
+
+#equipment:hover {
+  animation: rotateImg 0.4s linear forwards;
+  -webkit-animation: rotateImg 0.4s linear forwards;
+
+  transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+}
+
+@keyframes rotateImg {
+  0% {
+    border-width: @borderWidthBefore;
+    width: @widthBefore;
+    transform: @transformBefore;
+  }
+  100% {
+    border-width: @borderWidthAfter;
+    width: @widthAfter;
+    transform: @transformAfter;
+  }
+}
+
+@-webkit-keyframes rotateImg {
+  0% {
+    border-width: @borderWidthBefore;
+    width: @widthBefore;
+    transform: @transformBefore;
+  }
+  100% {
+    border-width: @borderWidthAfter;
+    width: @widthAfter;
+    transform: @transformAfter;
+  }
+}     

@@ -1,0 +1,102 @@
+/** ----- the addition to inline styles ----- **/
+
+@baseGreen: #007000;
+@baseGrey: #c8c8c8;
+
+@borderStyle: 1px solid @baseGrey;
+
+/* ----- global ----- */
+
+table, input {
+  width: 100%;
+}
+table td {
+  border: @borderStyle; 
+}
+
+h1 {
+  margin: 20px 0;
+  font: bold 15px Trebuchet MS;
+  text-transform: uppercase;
+  color: @baseGreen;
+}
+h2 {
+  margin: 15px 0;
+  font-size: 15px;
+  color: @baseGreen;
+}
+h3 {
+  margin: 7px 0;
+  font-weight: bold;
+  color: @baseGreen;
+}
+h4 {
+  margin: 15px 0;
+  padding: 5px 0 0 40px;
+  background-image: url("data:image/gif;base64,R0lGODlhNgEYAOYAAMv/mEqSAk+YBmCsFVGbCWq4Hp3fXYbOQMX7ka7rc2WyGb/3iajnbLTveozSR1ahDbrzgmy7IEyVBJLWTqHeZV2pE2KvF1SeC3XCKUeQAEiQAUiRAaPiZLLreNXsvne9M/v9+YK5TUqTA/P57lmiEnqzQV6hGm+9ImKpG1CXC2m3HZXEZ5rVX9DmvHKvNpfbVkuUBVehDVmeFX6/Pez15G68IUqSA4DKOFijD7LqfMbgrZHNVvf79KvRhmSmI4XIRGSxGGqqLFmkD5HOVlOaDnK3L4u+WW69IW27IFCaCFqmEFidE1yoEsP4j+Xx2nvGMdvry4vLS3m5OUmSAk2WBYrKTKPMe06WB16qFGy6H7rZm0ePAP///2++IgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAA2ARgAAAf/gFyCO12FhoeIiYqLjI2Oj5CRkpOUlZaXmJmam4mCXB6aBQMPEjOcp6ipqqusra6UnlxVlgUVAltbSzkHr72+v8DBwpYyuFsXlAMEBLdbUk0Nw9LT1NXWlT3GGSqRA81bQltDEAu81+fo6equXETGMY8FBFsEFbgBLAAME+v9/v8AG3GxYkxDgUYKAhiLICEABQAQOQScSLGiNS4gUhjDwcibhWYCHEKE6MCiyZMoVwlaYWxDFkUDcCGbJ3LBk5Q4c+qExYXHFWNKEhVQiEuBvR8QERhIsGCn06dPPRkxNgUJImVEcX0YORIC1K9gTXoaAcMYk6uFYm4hgYDki7YJ7MLKndsvVghjImocOhahy4MAHUaWxMDAAN3DiKnFomHDGJa9WwR8LMJ1ZAMMiTNr7hWLSwljEo4YygoYgAEHDUY23cy69anOTjYYG2DogTEUEM0xgGjYte/fPGO5MEblRKEIzaJAhDCBFwcEmIFLn76oMxcoGoxZOKRAwW6uSqmLH1/IOpcgxgQkSlAZAD/y8IGbb5HBGBBEN1JDTGAuvv/W5nHhgzFJ/GcgeQHqYMyCDDbo4IMQRijhhBRWaOGFGGao4YYcdujhh1sEGIsJIJZo4okopqjiiiy2iIuInmjh4ow01mjjjTiq6EkgADs=");
+  background-repeat: no-repeat;
+  font: 14px Arial;
+  text-transform: uppercase;
+  color: white;
+}
+
+p {
+  text-align: justify;
+}
+
+ul {
+  list-style-image: url("data:image/gif;base64,R0lGODlhCQAJAIAAAP///2++IiH5BAAAAAAALAAAAAAJAAkAAAIRjI+gC6bBXIOPnoozzWwiVAAAOw==");
+}
+li {
+  margin: 14px 2px;
+}
+
+/* ----- classes ----- */
+
+.ib_valign-top {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.top-border {
+  border-top: @borderStyle;
+}
+.right-border {
+  border-right: @borderStyle;
+}
+.bottom-border {
+  border-bottom: @borderStyle;
+}
+
+.menu__subitem--active {
+  display: block;
+  padding: 9px 18% 9px 9px;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATUAAAAeBAMAAAC/LZR2AAAAFVBMVEXz8/Pr6+rEyMDh4uBnsR9JkAOVw2gZXNVVAAABGUlEQVR4Xu3SwWrCQBSF4ZMEXE9Mca0xZm2Qdi32ZB5AcrIOmvj+j9BBKETN2lxKv2HgLn9mLtYz2DzaTtls1piDc+mvLK2qw6TUzVEWwTk3jsuyibSXtqgk3iIC4NKx0fNt7214VNY6ve9jAUTBVF/1nJYMEruZNzCownEOY6u6UMP9HGUvjQ5PafKix4yi0TQWq5B4PMAAhwdJrVwt2cGeD+lY9ybb4vOgpiW5hjk7ZbV65rmDNbHU7Vp6LE1u23l3YwBzCklNT9LDnmRQS19abGuxUM8TihPMUYemp8+rK8xRU7YM2MEcSeTNZtsg9R4rcg9zPu9tUbj2xGrJy37xDYOWFwZXB4tiBh4mJQw62PRFXvAX/PsB/IZbSoWUfGwAAAAASUVORK5CYII=");
+  background-size: 100% 100%;
+  /* background-repeat value for IE8 */
+  background-repeat: no-repeat;
+  text-align: right;
+}
+.news-item {
+  display: block;
+  padding: 20px;
+  border-bottom: @borderStyle;
+}
+
+/* ----- identificators ----- */
+
+#company_tel {
+  padding: 20px 0;
+  font: 20px Arial;
+  color: @baseGrey;
+}
+#company_tel--accent {
+  font-size: 30px;
+  color: @baseGreen;
+}
+
+#call_back {
+  border-bottom: 1px dashed @baseGreen;
+  text-transform: uppercase;
+  text-decoration: none;
+}
