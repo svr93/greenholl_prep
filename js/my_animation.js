@@ -1,5 +1,6 @@
 (function() {
   // all animation without jQuery
+  // TODO: 1) rewrite using requestAnimationFrame
 
   "use strict";
 
@@ -16,25 +17,31 @@
       var w = logo.width;
 
       var currFrame = 0;
-      var framesCount = 19;
+
+      var FULL_FRAME_COUNT = 19;
+      var SERIES_FRAME_COUNT = 9;
       var DELAY_TIME = 1500;
+
+      var interval = null;
                             
       var img = new Image();
+      img.onload = function() {
+        interval = setInterval(draw, DELAY_TIME);
+      };
       img.src = "/img/sprite_new.jpg";
                         
       function draw() {
-        if (currFrame < framesCount) {
+        if (currFrame < FULL_FRAME_COUNT) {
 
           ctx.clearRect(0, 0, w, h);
-          ctx.drawImage(img, 0, h * (currFrame % 9), w, h, 0, 0, w, h);
+          ctx.drawImage(img, 0, h * (currFrame % SERIES_FRAME_COUNT),
+                             w, h, 0, 0, w, h);
           ++currFrame;
         } else {
 
           clearInterval(interval);
         }
       }
-
-      var interval = setInterval(draw, DELAY_TIME);
     });
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -43,25 +50,36 @@
       var canvHeight = finger.height;
       var canvWidth = finger.width;
 
-      var imgHeight = 40;
-      var imgWidth = 27;
+      var imgHeight = null;
+      var imgWidth = null;
 
       var currFrame = 0;
-      var framesCount = 21;
+
+      var FRAME_COUNT = 21;
       var FIRST_DELAY_TIME = 75;
       var SECOND_DELAY_TIME = 1000;
 
+      var interval = null;
+
+      var HPOS_COEFF = 10;
       var SHIFT = 200;
+      var HEIGHT_INTERVAL = 3;
 
       var img = new Image();
+      img.onload = function() {
+        imgHeight = this.height;
+        imgWidth = this.width;
+
+        interval = setInterval(drawBefore, FIRST_DELAY_TIME);
+      };
       img.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAoBAMAAAD9FJxlAAAAG1BMVEUAAAAzMzNtbW18fHxGRkZJSUn////Z2dmcnJybb1tvAAAABnRSTlMA7/w3uX6rDERfAAAAyElEQVR4AZXRPQrCQBAF4JHVXhSNbRC1XTceQBIxllEsbF3C27QBiV4g4rHNz0YnFoqv+1h23sBQGU8Si/DXnN0s51S4fGHnB+M2z39ReJzx3pVCvl/HJvBHlqog3Hm6GjJmepISiaNU0HO40I6WdHjMFEyGG4yjI9pC+7ApGCIZNEwiWsJMGHt3cJKDBacCOHtZi2LcIu3AevlnLasjvFiobLZJifis+lRhw2nFEyMbbfoVO3wL22RrWZO9hVhcq+SWmzoBfeYJpmFxoIWLw5IAAAAASUVORK5CYII=";
 
       function drawBefore() {
-        if (currFrame < framesCount) {
+        if (currFrame < FRAME_COUNT) {
 
           ctx.clearRect(0, 0, canvWidth, canvHeight);
           ctx.drawImage(img, 0, 0, imgWidth, imgHeight, 
-                             currFrame * 10, 0, imgWidth, imgHeight);
+                             currFrame * HPOS_COEFF, 0, imgWidth, imgHeight);
           ++currFrame;
         } else {
 
@@ -73,14 +91,16 @@
       function drawAfter() {
         ctx.clearRect(SHIFT, 0, imgWidth, canvHeight);
         ctx.drawImage(img, 0, 0, imgWidth, imgHeight, 
-                           SHIFT, currFrame % 3, imgWidth, imgHeight);
+                           SHIFT, currFrame % HEIGHT_INTERVAL,
+                           imgWidth, imgHeight);
         ++currFrame;
       }
 
-      var interval = setInterval(drawBefore, FIRST_DELAY_TIME);
     });
 
   }());
+
+  /* ----- ----- */
 
   (function() {
     // thanksgiving letters animation
@@ -88,7 +108,9 @@
     var imgContainer = null;
     var isShown = false;
 
-    var lettersArr = ("l0.png,l1.jpg,l2.jpg,l3.jpg,l4.png,l5.jpg,l6.jpg,l7.jpg,l8.jpg").split(",");
+    var lettersArr = 
+    ("l0.png,l1.jpg,l2.jpg,l3.jpg,l4.png,l5.jpg,l6.jpg,l7.jpg,l8.jpg")
+    .split(",");
 
     var loadedLetters = 0;
 
@@ -105,7 +127,7 @@
       }
 
       isShown = !isShown;
-    }
+    };
 
     function createImgContainer() {
       // new container because it takes to load content only on request
@@ -145,7 +167,7 @@
         if (++loadedLetters < lettersArr.length) return;
 
         lettersTitle.innerHTML = "&lt; скрыть &gt;";
-      }
+      };
 
       link.appendChild(img);
       container.appendChild(link);
@@ -169,7 +191,8 @@
     }
 
     function initLadyAnimation() {
-      var PROPERTIES = ("webkitTransform,mozTransform,oTransform,msTransform").split(",");
+      var PROPERTIES = 
+      ("webkitTransform,mozTransform,oTransform,msTransform").split(",");
 
       var transform = "transform";
 
@@ -181,8 +204,8 @@
         break;
       }
 
-      var USUAL_SHIFT = 5;
-      var SPECIAL_SHIFT = 0.5;
+      var USUAL_SHIFT = 5; // "%"
+      var SPECIAL_SHIFT = 0.5; // "%"
       var JUMPING_COEFF = 4;
 
       var GRAFF_T_POS = 10; // "px"
@@ -193,6 +216,8 @@
       var UPP_LIMIT = LOW_LIMIT + graffWidth;
 
       var isReady = null;
+
+      var DELAY_TIME = 100;
 
       function resetValues() {
         graffWidth = 20; // "%"
@@ -207,7 +232,7 @@
         lady.style.height = ladyContainer.style.height;
         lady.style[transform] = "";
 
-        wall.style.top = -parseInt(wall.style.height) + "px";
+        wall.style.top = "-" + wall.style.height;
 
         isReady = true;
       }
@@ -226,8 +251,11 @@
             } else {
 
               ladyLPos -= SPECIAL_SHIFT;
-              lady.style.top = -GRAFF_T_POS - (ladyLPos % 2) * JUMPING_COEFF + "px";
-              lady.style[transform] = "rotate(" + (LOW_LIMIT - 10 - ladyLPos) + "deg)";
+              lady.style.top = -GRAFF_T_POS - (ladyLPos % 2) * JUMPING_COEFF 
+                               + "px";
+              lady.style[transform] = "rotate(" 
+                                      + (LOW_LIMIT - 10 - ladyLPos) 
+                                      + "deg)";
 
               graffWidth -= SPECIAL_SHIFT;
               graff.style.width = graffWidth + "%";
@@ -239,8 +267,8 @@
             clearInterval(interval);
             resetValues();
           }
-        }, 100);
-      }
+        }, DELAY_TIME);
+      };
 
       resetValues();
       ladyContainer.style.display = "block";
