@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>%custom in_meta('title')%</title>
+    <meta name="description" content="%custom in_meta('description')%">
+    <meta name="keywords" content="%custom in_meta('keywords')%">
+
+    <meta charset="utf-8">
+    <!-- initial-scale=0.9 for making content width <= 100% on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+
+    <meta name="author" content="Vladimir Shamsheev, svr93@i.ua">
+    <link rel="alternate" type="application/rss+xml" href="/data/rss/%content get_page_id('/novosti')%">
+    <style>
+      /* #007000 - base green       */
+      /* #beff8c - green (gradient) */
+      /* #555555 - grey (text)      */
+      /* #c8c8c8 - grey (border)    */
+
+      /* ----- global ----- */
+
+      /* img border default value (IE8) */
+      img {
+        border: 0;
+      }
+      body {
+        margin: auto;
+        width: 90%;
+        font: 13px Tahoma;
+        color: #555555;
+      }
+      a {
+        color: #007000;
+      }
+
+      /* ----- classes ----- */
+
+      .container {
+        display: table;
+        width: 100%;
+      }
+      .valign-middle {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      .top-bar {
+        display: inline-block;
+        width: 33%;
+      }
+      
+      .menu {
+        font: bold 12px Arial;
+      }   
+      .menu__item {
+        display: block;
+        padding: 12px 0px 12px 8px;
+        text-transform: uppercase;
+      }
+      /* menu__subitem settings are not full */
+      .menu__subitem {
+        display: block;
+        padding: 9px 15% 9px 6px;
+        text-align: right;
+      }
+
+      .text-picture {
+        float: right;
+        margin: 5px 0 5px 10px;
+        padding: 1px;
+        border: 1px solid #c8c8c8;
+      }
+      .text-picture--left {
+        float: left;
+        margin: 5px 10px 5px 0;
+        padding: 1px;
+        border: 1px solid #c8c8c8;
+      }
+    </style>
+    

@@ -161,7 +161,7 @@
       img.style.margin = "10px";
       img.style.border = "1px solid #c8c8c8";
 
-      // Is img.onload supported in IE8?
+
 
       img.onload = function() {
         if (++loadedLetters < lettersArr.length) return;
@@ -245,17 +245,17 @@
         var interval = setInterval(function() {
           if (ladyLPos >= -50) {
 
-            if (ladyLPos < LOW_LIMIT || ladyLPos > UPP_LIMIT) {
+            if (ladyLPos <= LOW_LIMIT || ladyLPos > UPP_LIMIT) {
 
               ladyLPos -= USUAL_SHIFT;
             } else {
 
               ladyLPos -= SPECIAL_SHIFT;
-              lady.style.top = -GRAFF_T_POS - (ladyLPos % 2) * JUMPING_COEFF 
-                               + "px";
-              lady.style[transform] = "rotate(" 
-                                      + (LOW_LIMIT - 10 - ladyLPos) 
-                                      + "deg)";
+              lady.style.top = -GRAFF_T_POS - (ladyLPos % 2) * JUMPING_COEFF + 
+                               "px";
+              lady.style[transform] = "rotate(" + 
+                                      (LOW_LIMIT - 10 - ladyLPos) + 
+                                      "deg)";
 
               graffWidth -= SPECIAL_SHIFT;
               graff.style.width = graffWidth + "%";

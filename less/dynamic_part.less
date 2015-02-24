@@ -1,18 +1,12 @@
 /** ----- the addition to inline styles ----- **/
 
+@baseGreen: #007000;
 @additionalGreen: #beff8c;
-
-@baseGradient: repeating-linear-gradient(white, @additionalGreen, white);
-
 @backgroundSize: 100% 300%;
-
 @transition: .5s linear;
 
-@borderWidthBefore: 0;
-@borderWidthAfter: 1px;
-
-@widthBefore: 100%;
-@widthAfter: 125%;
+@borderBefore: 1px solid @baseGreen;
+@borderAfter: 2px solid @baseGreen;
 
 @transformBefore: rotate3d(1, -1, 1, 0deg);
 @transformAfter: rotate3d(1, -1, 1, 30deg);
@@ -20,20 +14,25 @@
 /* ----- classes ----- */
 
 .gradient {
-  background-image: -webkit-@baseGradient;
-  background-image: -moz-@baseGradient;
-  background-image: -o-@baseGradient;
-  background-image: -ms-@baseGradient;
+  background-image: -webkit-repeating-linear-gradient(white, @additionalGreen, white);
+  background-image: -moz-repeating-linear-gradient(white, @additionalGreen, white);
+  background-image: -o-repeating-linear-gradient(white, @additionalGreen, white);
+  background-image: -ms-repeating-linear-gradient(white, @additionalGreen, white);
+  background-image: repeating-linear-gradient(white, @additionalGreen, white);
 
   -webkit-background-size: @backgroundSize;
   -moz-background-size: @backgroundSize;
   -o-background-size: @backgroundSize;
   -ms-background-size: @backgroundSize;
+  background-size: @backgroundSize;
+
+  background-position: 0 -50%;
 
   -webkit-transition: @transition;
   -moz-transition: @transition;
   -o-transition: @transition;
   -ms-transition: @transition;
+  transition: @transition;
 
   /* gradient for IE9- */
   -pie-background: linear-gradient(@additionalGreen, white);
@@ -45,36 +44,56 @@
 
 /* ----- identificators ----- */
 
-#equipment:hover {
-  animation: rotateImg 0.4s linear forwards;
+.rot-img:hover {
   -webkit-animation: rotateImg 0.4s linear forwards;
-
-  transform-origin: 50% 0%;
+  -moz-animation: rotateImg 0.4s linear forwards;
+  -o-animation: rotateImg 0.4s linear forwards;
+  animation: rotateImg 0.4s linear forwards;
+  
   -webkit-transform-origin: 50% 0%;
-}
-
-@keyframes rotateImg {
-  0% {
-    border-width: @borderWidthBefore;
-    width: @widthBefore;
-    transform: @transformBefore;
-  }
-  100% {
-    border-width: @borderWidthAfter;
-    width: @widthAfter;
-    transform: @transformAfter;
-  }
+  -moz-transform-origin: 50% 0%;
+  -o-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
 }
 
 @-webkit-keyframes rotateImg {
   0% {
-    border-width: @borderWidthBefore;
-    width: @widthBefore;
+    border: @borderBefore;
     transform: @transformBefore;
   }
   100% {
-    border-width: @borderWidthAfter;
-    width: @widthAfter;
+    border: @borderAfter;
     transform: @transformAfter;
   }
-}     
+}
+@-moz-keyframes rotateImg {
+  0% {
+    border: @borderBefore;
+    transform: @transformBefore;
+  }
+  100% {
+    border: @borderAfter;
+    transform: @transformAfter;
+  }
+}
+@-o-keyframes rotateImg {
+  0% {
+    border: @borderBefore;
+    transform: @transformBefore;
+  }
+  100% {
+    border: @borderAfter;
+    transform: @transformAfter;
+  }
+}
+@keyframes rotateImg {
+  0% {
+    border: @borderBefore;
+    transform: @transformBefore;
+  }
+  100% {
+    border: @borderAfter;
+    transform: @transformAfter;
+  }
+}
