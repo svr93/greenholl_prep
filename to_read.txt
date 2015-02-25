@@ -1,0 +1,12 @@
+/* ----- frontend-optimization ----- */
+
+1) habrahabr.ru/post/116538/ (31 марта 2011) [Data URI]
+
+2) dev.1c-bitrix.ru/community/webdev/user/94272/blog/10873/
+(26.06.2014) [+Data URI]
+
+3) frontender.info/performance-optimization/
+(30 мая 2014 года) [+Data URI vs 1, 2]
+
+4) pmav.eu/stuff/javascript-webworkers/ 
+(21/Jun/2010, so use github ver.) [+WebWorkers MDN info]
