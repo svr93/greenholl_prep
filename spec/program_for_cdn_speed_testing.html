@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      // тестировать с ресурса 214556591.r.cdn.skyparkcdn.ru
+
+      "use strict";
+
+      (function() {
+        var urlObjArray = [];
+        var rn = null;
+
+        window.testSpeed = function(reqNum) {
+          rn = reqNum;
+          initTestValues();
+
+          for (var i = 0; i < reqNum; ++i) {
+            for (var j = 0; j < urlObjArray.length; ++j) {
+              getTime(urlObjArray[j]);
+            }
+          }
+
+        };
+
+        function getTime(urlObj) {
+          var xhr = new XMLHttpRequest();
+
+          var currReqStartTime = null;
+          var currLoadingTime = null;
+
+          xhr.onreadystatechange = function() {
+            if (this.readyState != 4 || this.status != 200) return;
+
+            currLoadingTime = new Date() - currReqStartTime;
+            urlObj.loadingTime += currLoadingTime;
+            ++urlObj.completedReq;
+
+            createDiv(urlObj.urlStr, currLoadingTime);
+
+            if (urlObj.completedReq < rn) return;
+
+            createDiv(urlObj.urlStr, "Сумма: " + urlObj.loadingTime);
+          }
+
+          var reqUrl = urlObj.urlStr + "?rand=" + Math.random();
+          xhr.open("GET", reqUrl);
+          
+          currReqStartTime = new Date();
+          xhr.send();
+        }
+
+        function createDiv(parentId, text, elemId) {
+          var elem = document.createElement("div");
+
+          if (elemId) {
+            elem.id = elemId;
+          }
+
+          elem.innerHTML = text;
+          document.getElementById(parentId).insertBefore(elem, null);
+        }
+
+        function initTestValues() {
+          initValue("http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js");
+          initValue("http://yastatic.net/jquery/2.1.3/jquery.min.js");
+          initValue("http://214556591.r.cdn.skyparkcdn.ru/js/jquery-2.1.3.min.js");
+          initValue("http://greenholl.ru/js/jquery-2.1.3.min.js"); // problems with CORS
+        }
+
+        function initValue(urlStr) {
+          urlObjArray.push(new Url(urlStr));
+
+          createDiv("testContainer", "URL: " + urlStr, urlStr);
+        }
+
+        function Url(urlStr) {
+          this.urlStr = urlStr;
+          this.completedReq = 0;
+          this.loadingTime = 0;
+        }
+
+      }());
+    </script>
+  </head>
+  <body onload="testSpeed(20)">
+    <div id="testContainer"></div>
+  </body>
+</html>
