@@ -178,18 +178,6 @@
   (function() {
     // lady animation
 
-    if (document.addEventListener) {
-
-      document.addEventListener("DOMContentLoaded", initLadyAnimation);
-    } else {
-
-      document.attachEvent("onreadystatechange", function() {
-        if (document.readyState !== "complete") { return; }
-
-        initLadyAnimation();
-      });
-    }
-
     function initLadyAnimation() {
       var PROPERTIES = 
       ("webkitTransform,mozTransform,oTransform,msTransform").split(",");
@@ -272,6 +260,18 @@
 
       resetValues();
       ladyContainer.style.display = "block";
+    }
+
+    if (document.addEventListener) {
+
+      document.addEventListener("DOMContentLoaded", initLadyAnimation);
+    } else {
+
+      document.attachEvent("onreadystatechange", function() {
+        if (document.readyState !== "complete") { return; }
+
+        initLadyAnimation();
+      });
     }
 
   }());
