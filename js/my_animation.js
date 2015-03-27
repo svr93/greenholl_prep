@@ -184,7 +184,7 @@
     } else {
 
       document.attachEvent("onreadystatechange", function() {
-        if (document.readyState != "complete") { return; }
+        if (document.readyState !== "complete") { return; }
 
         initLadyAnimation();
       });

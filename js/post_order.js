@@ -14,7 +14,7 @@ function postOrder(userData) {
     },
 
     success: function(resp) {
-      if (resp == "success") {
+      if (resp === "success") {
         $('#sendButton').html('Ваша заявка отправлена!');
 
         setTimeout(function() {
@@ -32,7 +32,7 @@ function postOrder(userData) {
     },
 
     error: function(xhr, status, errThrown) {
-      if (status != "timeout") { return; }
+      if (status !== "timeout") { return; }
 
       $('#sendButton').html('Ошибка отправки');
 
