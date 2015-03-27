@@ -8,7 +8,7 @@
     // header animation on canvas (logo and finger)
     // addEventListener and canvas are not supported in IE8
 
-    if (!document.addEventListener) return;
+    if (!document.addEventListener) { return; }
 
     document.addEventListener("DOMContentLoaded", function() {
       var ctx = logo.getContext("2d");
@@ -164,7 +164,7 @@
 
 
       img.onload = function() {
-        if (++loadedLetters < lettersArr.length) return;
+        if (++loadedLetters < lettersArr.length) { return; }
 
         lettersTitle.innerHTML = "&lt; скрыть &gt;";
       };
@@ -184,7 +184,7 @@
     } else {
 
       document.attachEvent("onreadystatechange", function() {
-        if (document.readyState != "complete") return;
+        if (document.readyState != "complete") { return; }
 
         initLadyAnimation();
       });
@@ -198,7 +198,7 @@
 
       for (var i = 0; i < PROPERTIES.length; ++i) {
 
-        if (!(PROPERTIES[i] in lady.style)) continue;
+        if (!(PROPERTIES[i] in lady.style)) { continue; }
 
         transform = PROPERTIES[i];
         break;
@@ -238,7 +238,7 @@
       }
 
       window.animateLady = function() {
-        if (!isReady) return;
+        if (!isReady) { return; }
 
         isReady = false;
 

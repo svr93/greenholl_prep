@@ -32,7 +32,7 @@ function postOrder(userData) {
     },
 
     error: function(xhr, status, errThrown) {
-      if (status != "timeout") return;
+      if (status != "timeout") { return; }
 
       $('#sendButton').html('Ошибка отправки');
 
