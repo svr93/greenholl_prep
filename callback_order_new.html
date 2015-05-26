@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- only for IE10+ -->
+<!-- all buttons have property 'display:none' -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <script>
+      function checkForm() {
+        'use strict';
+
+        var REFRESH_TIME = 3000;
+
+        if (!callbackForm.checkValidity()) {
+          sendButton.innerHTML = 'Заполните форму правильно!';
+
+          setTimeout(function() {
+            sendButton.innerHTML = 'Заказать обратный звонок!';
+          }, REFRESH_TIME);
+
+          return;
+        }
+
+        var userData = new FormData(callbackForm);
+        postOrder(userData);
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        'use strict';
+
+        sendButton.onclick = function() {
+          checkForm();
+        };
+
+        sendButton.style.display = 'block';
+      }
+    </script>
+  </head>
+  <body>
+    <form id="callbackForm">
+      <h4>Контактные данные</h4>
+      <div class="ib_valign-top" style="width:30%; text-align:right">
+        Ваше имя:
+      </div><!-- don't know why 65%
+   --><div class="ib_valign-top" style="width:65%">
+        <input required name="name">
+      </div>
+      <br>
+      <br>
+      <div class="ib_valign-top" style="width:30%; text-align:right">
+        Телефон:
+      </div><!--
+   --><div class="ib_valign-top" style="width:65%; text-align:center; color:#c8c8c8">
+        <input required name="tel" type="number" min="80000000000" max="89999999999">
+        номер в формате 8XXXXXXXXXX
+      </div>
+      <h4>Когда Вам позвонить?</h4>
+      <div class="ib_valign-top" style="width:30%; text-align:right">
+        Дата и время:
+      </div><!--
+   --><div class="ib_valign-top" style="width:65%; text-align:center; color:#c8c8c8">
+        <input required name="dateTime" type="datetime-local">
+        дата в формате дд.мм.гггг --:--
+      </div>
+      <br>
+      <br>
+    </form>
+    <button id="sendButton" style="display:none; width:100%; background-color:#007000; text-align:center; color:white">
+      Заказать обратный звонок!
+    </button>
+    <br>
+    <br>
+  </body>
+</html>
