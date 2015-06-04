@@ -1,23 +1,35 @@
-    <!-- HTML5 tags support -->
-    <!--[if lt IE 9]>
-      <script>
-        (function() {
-          var arr = ("header,footer,section,nav,article").split(",");
-          for (var i = 0; i < arr.length; ++i) {
-            document.createElement(arr[i]);
-          }
-        }());
-      </script>
-    <![endif]-->
-
-    <!-- CSS3 gradient support -->
-    <!--[if lt IE 10]>
-      <script>
-        function attachPIE() {
-          $(function() {
-            PIE.attach($('nav')[0]);
-          });
+  <!-- HTML5 tags support -->
+  <!--[if lt IE 9]>
+    <script>
+      (function() {
+        var arr = ('header,footer,main,section,nav,article').split(',');
+        for (var i = 0; i < arr.length; ++i) {
+          document.createElement(arr[i]);
         }
-      </script>
-    <![endif]-->
-    
+      }());
+    </script>
+  <![endif]-->
+
+  <!-- CSS3 gradient support -->
+  <!--[if lt IE 10]>
+    <script>    
+      function attachPIE() {
+        if (document.addEventListener) {
+
+          document.addEventListener('DOMContentLoaded', attach);
+          return;
+        }
+
+        document.attachEvent('onreadystatechange', function() {
+          if (document.readyState != 'complete') { return; }
+
+          attach();
+        });
+
+        function attach() {
+          var nav = document.getElementsByTagName('nav');
+          PIE.attach(nav);
+        }
+      }
+    </script>
+  <![endif]-->
