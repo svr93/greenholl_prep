@@ -21,15 +21,14 @@ initValue('http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js');
 
 1) 15.06.15; testSpeed(20);
 
-а) 15:16
+a) 15:56 (с первого раза)
 
 URL: http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
-Сумма: 34194
+Сумма: 30365
 URL: http://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js
-Сумма: 28919
+Сумма: 33286
 URL: http://code.jquery.com/jquery-2.1.3.min.js
-Сумма: 54285
+Сумма: 75301
 URL: http://yastatic.net/jquery/2.1.3/jquery.min.js
-Сумма: 110987
+Сумма: 100064
 
-б)
