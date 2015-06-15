@@ -10,3 +10,7 @@
 
 4) pmav.eu/stuff/javascript-webworkers/ 
 (21/Jun/2010, so use github ver.) [+WebWorkers MDN info]
+
+5) html5book.ru/html5-semantic-elements/ [<main> tag]
+
+6) w3.org/TR/html5/semantics.html#the-html-element [<html> tag omission]
