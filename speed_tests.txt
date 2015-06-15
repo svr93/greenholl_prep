@@ -5,6 +5,8 @@ I. Тестирование скорости CDN.
 
 Протокол - http, как и у greenholl.ru.
 
+Проверка каждые полчаса.
+
 initValue('http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
 initValue('http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
 initValue('http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js');
@@ -17,4 +19,17 @@ initValue('http://yastatic.net/jquery/2.1.3/jquery.min.js');
 initValue('http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js');
 // CORS header error
 
-1) 15.06.15
+1) 15.06.15; testSpeed(20);
+
+а) 15:16
+
+URL: http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
+Сумма: 34194
+URL: http://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js
+Сумма: 28919
+URL: http://code.jquery.com/jquery-2.1.3.min.js
+Сумма: 54285
+URL: http://yastatic.net/jquery/2.1.3/jquery.min.js
+Сумма: 110987
+
+б)
