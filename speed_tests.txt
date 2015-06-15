@@ -32,7 +32,7 @@ URL: http://code.jquery.com/jquery-2.1.3.min.js
 URL: http://yastatic.net/jquery/2.1.3/jquery.min.js
 Сумма: 100064
 
-б) 16:42 (со второго раза)
+б) 16:42 (со второго раза - проблемы с сетью)
 
 URL: http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
 Сумма: 41992
@@ -53,3 +53,14 @@ URL: http://code.jquery.com/jquery-2.1.3.min.js
 Сумма: 68641
 URL: http://yastatic.net/jquery/2.1.3/jquery.min.js
 Сумма: 69518
+
+г) 17:52 (с первого раза)
+
+URL: http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
+Сумма: 26209
+URL: http://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js
+Сумма: 37577
+URL: http://code.jquery.com/jquery-2.1.3.min.js
+Сумма: 64084
+URL: http://yastatic.net/jquery/2.1.3/jquery.min.js
+Сумма: 72096
