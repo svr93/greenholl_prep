@@ -64,3 +64,16 @@ URL: http://code.jquery.com/jquery-2.1.3.min.js
 Сумма: 64084
 URL: http://yastatic.net/jquery/2.1.3/jquery.min.js
 Сумма: 72096
+
+2) 16.06.15; testSpeed(20);
+
+а) 12:00 (с первого раза)
+
+URL: http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
+Сумма: 32599
+URL: http://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js
+Сумма: 62439
+URL: http://code.jquery.com/jquery-2.1.3.min.js
+Сумма: 70447
+URL: http://yastatic.net/jquery/2.1.3/jquery.min.js
+Сумма: 45623
